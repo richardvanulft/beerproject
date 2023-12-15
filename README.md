@@ -1,18 +1,31 @@
-# Vue 3 + TypeScript + Vite
+##README
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+#SEO
+ik heb de volgende 4 SEO dingen gedaan:
+Mobile-friendly Design: ik heb media queries gebruikt om de website responsive te maken.
+Page Speed: iIk heb efficiente dingen gebruikt zoals het gebruik van computed properties en pagineren van de bierlijst
+interne links: ik heb interne links op mijn website met behulp van router-link
+meta tags: ik heb meta tags toegevoegd aan beerInfo (niet dat die echt nodig was) homepage, contact, beerlist en about page
 
-## Recommended IDE Setup
+#aantal SEO bronnen die ik heb gebruikt: (ik heb uiteraard gwn heel google uitgezocht voor dingen maar dit zijn de meest straighforward ofzo i geuss)
+https://ahrefs.com/blog/keyword-research/
+https://www.youtube.com/watch?v=qufVjS0H6IM
+https://ahrefs.com/blog/seo-meta-tags/
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Type Support For `.vue` Imports in TS
+ik heb deze keuzes gemaakt omdat ik laat ben begonnen aan deze opdracht en ik mede door mijn adhd niet echt goed ben in meerdere projecten tegelijk handelen.
+ik heb dus gekozen om de dingen te doen die ik het makkelijkst vond en die het meeste effect zouden hebben op de SEO van mijn website.
+ik heb dus niet gekozen om de website te hosten op een server omdat ik daar geen tijd meer voor had.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+#SASS
+Ik heb sass gebruikt maar niet optimaal. dit komt omdat ik dit project heb opgepakt van vorig jaar
+en ik toen geen SASS gebruikte dus ik heb het wel geimplementeerd maar niet optimaal gebruikt.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+#VERBETER PUNTEN
+ik heb de volgende verbeter punten:
+- omdat ik niet veel tijd had is de styling een beetje rushed MAAR het voldoet wel aan de opdracht
+- de mobile versie van de website is aanwezig maar het is zeker niet perfect, dat komt omdat ik geen nette workflow heb en de website in de eerste instantie niet responsive was.
+- ik heb de site helaas niet op mijn webserver kunnen zetten wat ik eerst wel van plan was.
+- Ik heb niet de meest optimale keuzes gemaakt voor de SEO van mijn website.
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+test plan is te vinden in ./Testplan

@@ -1,27 +1,40 @@
 <template>
     <div class="container">
-      <h1>BeerList</h1>
       <v-table class="beers">
         <thead>
         <tr class="trbeer">
           <th><p style="font-size: 150%; margin-right: 30px;">Name</p></th>
-          <th><p style="font-size: 150%; margin-right: 30px;">Brewer</p></th>
-          <th><p style="font-size: 150%; margin-right: 30px;">Information</p></th>
-          <th><p style="font-size: 150%; margin-right: 30px;">Purchase Price</p></th>
+          <th class="brewer"><p style="font-size: 150%; margin-right: 30px;">Brewer</p></th>
+          <th class="info"><p style="font-size: 150%; margin-right: 30px;">Info</p></th>
+          <th class="price"><p style="font-size: 150%; margin-right: 30px;">Price</p></th>
         </tr>
       </thead>
       <tbody>
-      <tr v-for="beer in paginatedBeers" :key="beer.id">
+      <tr v-for="beer in paginatedBeers" :key="beer.id" class="beer-row">
       <td class="tdbeer">{{ beer.name }}</td>
-          <td class="tdbeer">{{ beer.brewer }}</td>
-          <td class="tdbeer">
+          <td class="tdbeer brewer">{{ beer.brewer }}</td>
+          <td class="tdbeer info">
             <router-link :to="{name: 'BeerInfo', params: { id: beer.id } }">
-              <button style="font-size: 100%;">View Details</button>
+              <button style="font-size: 100%;">Info</button>
             </router-link>
           </td>
-          <td class="tdbeer">{{ beer.purchase_price }}</td>
+          <td class="tdbeer price">{{ beer.purchase_price }}</td>
         </tr>
       </tbody>
+        <div class="pagination">
+          <button @click="currentPage = 1" :disabled="currentPage === 1">First</button>
+          <button @click="currentPage--" :disabled="currentPage === 1">Back</button>
+          <button
+              v-for="page in pageRange"
+              :key="page"
+              :class="{ active: currentPage === page }"
+              @click="currentPage = page"
+          >
+            {{ page }}
+          </button>
+          <button @click="currentPage++" :disabled="currentPage === totalPages">Next</button>
+          <button @click="currentPage = totalPages" :disabled="currentPage === totalPages">Last</button>
+        </div>
       </v-table>
     </div>
 </template>
@@ -29,20 +42,47 @@
 
 <script>
 export default {
+  name: 'Beerlist',
+  metaInfo: {
+    title: 'Beerlist - Unknown Beer Company',
+    meta: [
+      {
+        name: 'description',
+        content: 'A List of all our beers that you can taste.'
+      },
+      {
+        property: 'og:title',
+        content: 'Beerlist - unknownbeercompany.com'
+      },
+      {
+        property: 'og:description',
+        content: 'A List of all our beers that you can taste.'
+      }
+    ]
+  },
   data() {
     return {
       beers: [],
-      selectedBeerId: null,
       currentPage: 1,
-      perPage: 10,
-      rows: 0,
     };
   },
   computed: {
+    //vernieuwd het alleen bij refresh, normale gebruikers zullen niet op computer ineens de website in de maat van telefoon bekijken
+    perPage() {
+      return window.innerWidth <= 480 ? 3 : 6;
+    },
+    totalPages() {
+      return Math.ceil(this.beers.length / this.perPage);
+    },
     paginatedBeers() {
       const start = (this.currentPage - 1) * this.perPage;
       const end = start + this.perPage;
       return this.beers.slice(start, end);
+    },
+    pageRange() {
+      const start = Math.max(this.currentPage - 2, 1);
+      const end = Math.min(start + 2, this.totalPages);
+      return Array.from({ length: end - start + 1 }, (_, i) => start + i);
     },
   },
   mounted() {
@@ -68,48 +108,6 @@ export default {
 };
 </script>
 
-<style>
-body {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  color: #333;
-  margin: 0;
-  padding: 0;
-  background-color: #D89000;
-}
-
-.center-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
-  justify-content: center;
-  height: 100%;
-}
-
-h1 {
-  text-align: center;
-}
-
-.beers {
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid black;
-  border-collapse: collapse;
-  width: 50%;
-  color: white;
-  background-color: #373737;
-  border-radius: 5px;
-  border-color: transparent;
-  text-align: center;
-}
-
-.tdbeer {
-  text-align: center;
-  margin-left: 200px;
-}
-
-li {
-  list-style-type: none;
-  margin: 15px;
-}
+<style lang="scss">
+@import '../../assets/css/style.scss';
 </style>

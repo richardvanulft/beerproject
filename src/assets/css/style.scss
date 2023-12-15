@@ -1,28 +1,7 @@
-$font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-$primary-color: #646cff;
-$hover-color: #535bf2;
-$background-color: #242424;
-$light-background: #ffffff;
-$light-hover-color: #747bff;
-
-:root {
-  font-family: $font-family;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: $background-color;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-
-  @media (prefers-color-scheme: light) {
-    color: #213547;
-    background-color: $light-background;
-  }
-}
+@import "_navbar.scss";
+@import "_variables.scss";
+@import "_sidebars.scss";
+@import "_beers.scss";
 
 a {
   font-weight: 500;
@@ -41,6 +20,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow: hidden;
+  background-color: #D89000;
+  font-family: $font-family;
 }
 
 button {
@@ -50,9 +31,24 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: transparent;
   cursor: pointer;
   transition: border-color 0.25s;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    height: 4rem;
+    background-color: $background-color;
+    border-bottom: 1px solid #eaeaea;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
 
   &:hover {
     border-color: $primary-color;
@@ -75,29 +71,12 @@ button {
 #app {
   width: 100%;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
 .content-wrapper {
   display: flex;
   align-items: center;
-}
-
-.left-sidebar {
-  position: fixed;
-  width: 200px;
-  background-color: $background-color;
-  border: 3px solid grey;
-  border-radius: 10px;
-  padding: 20px;
-  flex-shrink: 0;
-
-  @media (max-width: 768px) {
-    width: 100%;
-    height: auto;
-    padding: 10px;
-  }
 }
 
 .container {
@@ -111,25 +90,4 @@ button {
 .container h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-}
-
-.right-sidebar {
-  position: fixed;
-  right: 0;
-  width: 200px;
-  background-color: $background-color;
-  border: 3px solid grey;
-  border-radius: 10px;
-  padding: 20px;
-  flex-shrink: 0;
-
-  @media (max-width: 768px) {
-    display: none;
-  }
-
-  .right-sidebar h1,
-  .left-sidebar h1 {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
 }

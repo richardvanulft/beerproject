@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="beers">
       <Navbar />
       <router-view />
       <h1>BeerInfo</h1>
@@ -33,14 +33,6 @@
             <td class="tdbeer">{{ beer.purchase_price }}</td>
             </tr>
             <tr class="trbeer">
-            <th>created_at</th>
-            <td class="tdbeer">{{ beer.created_at }}</td>
-            </tr>
-            <tr class="trbeer">
-            <th>updated_at</th>
-            <td class="tdbeer">{{ beer.updated_at }}</td>
-            </tr>
-            <tr class="trbeer">
             <th>like count</th>
             <td class="tdbeer">{{ beer.like_count }}</td>
           </tr>
@@ -64,6 +56,24 @@
   });
 
   export default {
+    name: 'BeerInfo',
+    metaInfo: {
+      title: 'Beer Information - Unknown Beer Company',
+      meta: [
+        {
+          name: 'description',
+          content: 'Details of a specific beer.'
+        },
+        {
+          property: 'og:title',
+          content: 'Beer Information - unknownbeercompany.com'
+        },
+        {
+          property: 'og:description',
+          content: 'Details of a specific beer.'
+        }
+      ]
+    },
     data() {
       return {
         beer: {},
@@ -78,8 +88,8 @@
       getIdFromURL() {
         const url = window.location.href;
         const id = url.substring(url.lastIndexOf('/') + 1);
-        return id;
         console.log(id);
+        return id;
       },
       fetchData(id) {
         axios
@@ -95,4 +105,7 @@
     },
   };
   </script>
+<style lang="scss">
+@import '../assets/css/style.scss';
+</style>
   

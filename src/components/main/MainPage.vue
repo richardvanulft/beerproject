@@ -18,7 +18,29 @@ import axios from 'axios';
   .catch(error => {
     console.log(error);
   });
+
+export default {
+
+name: 'HomePage',
+  metaInfo: {
+    title: 'Home - unknownbeercompany',
+    meta: [
+      {
+        name: 'description',
+        content: 'Welcome to Unknown Beer Company, the place you want to be to taste your beers!'
+      },
+      {
+        property: 'og:title',
+        content: 'Home - unknownbeercompany.com'
+      },
+      {
+        property: 'og:description',
+        content: 'Welcome to Unknown Beer Company, the place you want to be to taste your beers!'
+      }
+    ]
+  },
+}
 </script>
-<style>
+<style lang="scss">
 @import '../../assets/css/style.scss';
 </style>

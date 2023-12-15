@@ -11,7 +11,9 @@
     <li v-else class="Login"><router-link to="/login">Login</router-link></li>
     </ul>
     <ul class="center">
-      <h1 style="text-align: center; color: white; border-width: 3px; border-color: white;">Unknown Beer Company</h1>
+      <li>
+        <h1 style="text-align: center; color: white; border-width: 3px; border-color: white;">Unknown Beer Company</h1>
+      </li>
       <li><router-link to="/">Home</router-link></li>
       <li><router-link to="/beers">Beers</router-link></li>
       <li><router-link to="/about">About</router-link></li>
@@ -24,7 +26,9 @@
     <button @click="toggleMenu()" class="hamburger">&#9776;</button>
     <div v-if="isMenuOpen" class="menu">
       <ul>
-        <button @click="closeMenu" class="close-button">X</button>
+        <li>
+          <button @click="closeMenu" class="close-button">X</button>
+        </li>
       <li v-if="isLoggedIn" class="Login2" @click="toggleDropdown">
         <span class="ClickableSpan">{{ currentUser.firstname }}</span>
         <ul v-if="showDropdown" class="DropdownMenu">
@@ -44,6 +48,7 @@
 
 <script>
 import { mapState } from 'vuex';
+import axios from 'axios';
 export default {
   name: 'Navbar',
   computed: {

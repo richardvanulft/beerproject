@@ -28,4 +28,4 @@ ik heb de volgende verbeter punten:
 - ik heb de site helaas niet op mijn webserver kunnen zetten wat ik eerst wel van plan was.
 - Ik heb niet de meest optimale keuzes gemaakt voor de SEO van mijn website.
 
-test plan is te vinden in ./Testplan
+test plan is te vinden in Testplan.md

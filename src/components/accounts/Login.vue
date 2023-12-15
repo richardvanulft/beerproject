@@ -1,10 +1,13 @@
 <template>
+  <div class="login">
+    <h1>Login</h1>
   <form @submit.prevent="login">
     <input type="email" v-model="userData.email" placeholder="Email" required>
     <input type="password" v-model="userData.password" placeholder="Wachtwoord" required>
     <button type="submit">Inloggen</button>
     nog geen account? <router-link to="/register">registreer</router-link>
   </form>
+  </div>
 </template>
 
 <script>
@@ -66,29 +69,41 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .login {
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
   background-color: #373737;
   height: 500px;
   width: 500px;
-  align-items: center;
-} 
-
-input {
-  height: 25px; 
-  width: 200px; 
-  border-radius: 10px; 
-  text-align: center; 
-  font-size: large;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.trlogin {
-  height: 50px;
-  width: 50px;
-  text-align: center;
-  font-size: large;
+input {
+  height: 35px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 0 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+button {
+  height: 35px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: grey;
   color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ddd;
 }
 </style>

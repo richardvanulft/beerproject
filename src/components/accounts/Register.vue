@@ -1,4 +1,5 @@
 <template>
+  <div class="register">
   <form @submit.prevent="registerUser">
     <input type="text" v-model="userData.firstname" placeholder="Voornaam" required>
     <input type="text" v-model="userData.lastname" placeholder="Achternaam" required>
@@ -7,6 +8,7 @@
     <button type="submit" :disabled="isLoading">Registreren</button>
     <div v-if="isLoading">Registreren...</div>
   </form>
+  </div>
 </template>
 
 
@@ -65,3 +67,42 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background-color: #373737;
+  height: 500px;
+  width: 500px;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+input {
+  height: 35px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 0 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+button {
+  height: 35px;
+  width: 100%;
+  border-radius: 10px;
+background-color: grey;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+</style>
